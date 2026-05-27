@@ -2,18 +2,30 @@
  * publications.js — Lab publication database
  *
  * To add a paper:
- *   1. Find the right section (or create a new year section).
+ *   1. Find the right section (or add a new year section).
  *   2. Copy a paper object and fill in the fields.
- *   3. Save — the page renders automatically from this file.
+ *   3. Save — publications.html and research.html render automatically.
  *
  * Fields:
- *   title   — string, required
- *   authors — string, required. Use * for equal contribution.
- *   venue   — string, leave "" for preprints
- *   links   — array of { label, url }
- *             common labels: "arXiv", "PDF", "Code", "Slides", "Poster", "News", "Data"
- *   awards  — array of strings (prize / competition recognitions)
- *   notes   — array of strings (workshop versions, acceptance rates, etc.)
+ *   title      — string, required
+ *   authors    — string, required. Use * for equal contribution.
+ *   venue      — string, leave "" for preprints / working papers
+ *   links      — array of { label, url }
+ *                common labels: "arXiv", "PDF", "Code", "Slides", "Poster", "News", "Data"
+ *   awards     — array of strings (prize / competition recognitions)
+ *   notes      — array of strings (workshop versions, acceptance rates, etc.)
+ *   categories — array of category keys; used by research.html to group papers.
+ *                Available keys:
+ *                  "decision-learning"    — decision-focused / predict-then-optimize
+ *                  "conformal-prediction" — conformal prediction & uncertainty sets
+ *                  "robust-optimization"  — robust / distributionally robust optimization
+ *                  "energy-resilience"    — power grids, energy systems, resilience
+ *                  "generative-models"    — generative modeling, synthetic data
+ *                  "spatio-temporal"      — spatio-temporal processes, point processes
+ *                  "change-detection"     — sequential detection, change-point, anomaly
+ *                  "fairness-causality"   — fairness, causal inference, counterfactuals
+ *                  "human-ai"             — human-AI collaboration, policy optimization
+ *                  "graph-learning"       — graph neural networks, network data
  */
 
 const PUBLICATIONS = {
@@ -29,7 +41,8 @@ const PUBLICATIONS = {
           venue: "",
           links: [],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["conformal-prediction", "robust-optimization"]
         },
         {
           title: "Learning to Test: Physics-informed representation for dynamical instability detection.",
@@ -37,17 +50,17 @@ const PUBLICATIONS = {
           venue: "",
           links: [],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["change-detection", "spatio-temporal"]
         },
         {
           title: "Large-scale resilience planning for wildfire-prone electricity-system via adaptive robust optimization.",
           authors: "S. Chen, S. Zhu, and R. Sioshansi.",
           venue: "",
-          links: [
-            { label: "Slides", url: "#" }
-          ],
+          links: [{ label: "Slides", url: "#" }],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["energy-resilience", "robust-optimization"]
         },
         {
           title: "Should humans be in the loop? Human-AI collaboration paradox and automation cliffs.",
@@ -55,19 +68,17 @@ const PUBLICATIONS = {
           venue: "",
           links: [],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["human-ai"]
         },
         {
           title: "Score-based change-point detection and region localization for spatio-temporal point processes.",
           authors: "W. Zhou, L. Xie, and S. Zhu.",
           venue: "",
-          links: [
-            { label: "Code", url: "#" }
-          ],
-          awards: [
-            "Winner, 2026 IISE QCRE Best Track Paper Competition"
-          ],
-          notes: []
+          links: [{ label: "Code", url: "#" }],
+          awards: ["Winner, 2026 IISE QCRE Best Track Paper Competition"],
+          notes: [],
+          categories: ["change-detection", "spatio-temporal"]
         },
         {
           title: "Impact of power outages on the adoption of residential solar photovoltaics in a changing climate.",
@@ -75,41 +86,35 @@ const PUBLICATIONS = {
           venue: "",
           links: [],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["energy-resilience"]
         },
         {
           title: "Data to dose: Efficient synthetic data generation with expert guidance for personalized dosing.",
           authors: "H. S. Verma, H. Wiberg, S. Zhu, and S. Tayur.",
           venue: "",
           links: [],
-          awards: [
-            "Runner up, 2025 INFORMS HAS Student Paper Competition"
-          ],
-          notes: [
-            "A short version is accepted by 2025 NeurIPS ML×OR Workshop."
-          ]
+          awards: ["Runner up, 2025 INFORMS HAS Student Paper Competition"],
+          notes: ["A short version is accepted by 2025 NeurIPS ML×OR Workshop."],
+          categories: ["generative-models", "human-ai"]
         },
         {
           title: "Enhancing electricity-system resilience with adaptive robust optimization.",
           authors: "S. Chen, S. Zhu, and R. Sioshansi.",
           venue: "",
-          links: [
-            { label: "News", url: "#" }
-          ],
-          awards: [
-            "Winner, 2025 INFORMS ENRE Best Student Paper Award"
-          ],
-          notes: []
+          links: [{ label: "News", url: "#" }],
+          awards: ["Winner, 2025 INFORMS ENRE Best Student Paper Award"],
+          notes: [],
+          categories: ["energy-resilience", "robust-optimization"]
         },
         {
           title: "Generative conformal prediction with vectorized non-conformity scores.",
           authors: "M. Zheng and S. Zhu.",
           venue: "",
-          links: [
-            { label: "Code", url: "#" }
-          ],
+          links: [{ label: "Code", url: "#" }],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["conformal-prediction", "generative-models"]
         },
         {
           title: "Balancing optimality and diversity: Human-centered decision-making through generative curation.",
@@ -120,19 +125,17 @@ const PUBLICATIONS = {
             { label: "Code",   url: "#" }
           ],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["human-ai", "decision-learning"]
         },
         {
           title: "Generalized Hypercube queuing models with overlapping service regions.",
           authors: "W. Xing, S. Zhu, and Y. Xie.",
           venue: "",
-          links: [
-            { label: "Code", url: "#" }
-          ],
-          awards: [
-            "1st place, 2026 Clifford Spiegelman Student Paper Competition"
-          ],
-          notes: []
+          links: [{ label: "Code", url: "#" }],
+          awards: ["1st place, 2026 Clifford Spiegelman Student Paper Competition"],
+          notes: [],
+          categories: ["spatio-temporal"]
         }
       ]
     },
@@ -145,14 +148,13 @@ const PUBLICATIONS = {
           title: "Hierarchical probabilistic conformal prediction for distributed energy resources adoption.",
           authors: "W. Zhou and S. Zhu.",
           venue: "Annals of Applied Statistics. Accepted, 2026.",
-          links: [
-            { label: "News", url: "#" }
-          ],
+          links: [{ label: "News", url: "#" }],
           awards: [
             "2nd place, 2026 INFORMS Innovative Applications in Analytics Award",
             "Runner up, 2025 INFORMS Data Mining Best Applied Paper"
           ],
-          notes: []
+          notes: [],
+          categories: ["conformal-prediction", "energy-resilience"]
         },
         {
           title: "Calibrating decision robustness via inverse conformal risk control.",
@@ -160,7 +162,8 @@ const PUBLICATIONS = {
           venue: "International Conference on Machine Learning (ICML), 2026.",
           links: [],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["conformal-prediction", "decision-learning"]
         },
         {
           title: "Conformalized decision risk assessment.",
@@ -172,24 +175,18 @@ const PUBLICATIONS = {
             { label: "Poster", url: "#" },
             { label: "Code",   url: "#" }
           ],
-          awards: [
-            "Winner, 2025 YinzOR Poster Competition"
-          ],
-          notes: [
-            "A short version is accepted by 2025 NeurIPS ML×OR Workshop."
-          ]
+          awards: ["Winner, 2025 YinzOR Poster Competition"],
+          notes: ["A short version is accepted by 2025 NeurIPS ML×OR Workshop."],
+          categories: ["conformal-prediction", "decision-learning"]
         },
         {
           title: "Gen-DFL: Decision-focused generative learning for robust decision making.",
           authors: "P. Z. Wang, S. Chen, J. Liang, F. Fioretto, and S. Zhu.",
           venue: "International Conference on Learning Representations (ICLR), 2026.",
-          links: [
-            { label: "arXiv", url: "#" }
-          ],
-          awards: [
-            "Winner, 2026 IISE DAIS Best Track Paper Competition"
-          ],
-          notes: []
+          links: [{ label: "arXiv", url: "#" }],
+          awards: ["Winner, 2026 IISE DAIS Best Track Paper Competition"],
+          notes: [],
+          categories: ["decision-learning", "generative-models"]
         },
         {
           title: "Global-decision-focused neural ODEs for proactive grid resilience management.",
@@ -200,7 +197,8 @@ const PUBLICATIONS = {
             { label: "Code",  url: "#" }
           ],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["decision-learning", "energy-resilience"]
         }
       ]
     },
@@ -215,7 +213,8 @@ const PUBLICATIONS = {
           venue: "Transactions on Machine Learning Research (TMLR), Dec 2025.",
           links: [],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["generative-models"]
         },
         {
           title: "Topology-aware conformal prediction for stream networks.",
@@ -226,7 +225,8 @@ const PUBLICATIONS = {
             { label: "Code",  url: "#" }
           ],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["conformal-prediction", "graph-learning"]
         },
         {
           title: "Sequential change point detection via denoising score matching.",
@@ -237,7 +237,8 @@ const PUBLICATIONS = {
             { label: "Code",  url: "#" }
           ],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["change-detection"]
         },
         {
           title: "Quantifying grid resilience against extreme weather using large-scale customer power outage data.",
@@ -250,7 +251,8 @@ const PUBLICATIONS = {
             { label: "News",   url: "#" }
           ],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["energy-resilience"]
         },
         {
           title: "Counterfactual fairness through transforming data orthogonal to bias.",
@@ -261,7 +263,8 @@ const PUBLICATIONS = {
             { label: "Code",  url: "#" }
           ],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["fairness-causality"]
         },
         {
           title: "Conditional generative modeling for high-dimensional marked temporal point processes.",
@@ -272,21 +275,17 @@ const PUBLICATIONS = {
             { label: "Code",  url: "#" }
           ],
           awards: [],
-          notes: [
-            "A short version is accepted by NeurIPS 2023 Workshop on SyntheticData4ML."
-          ]
+          notes: ["A short version is accepted by NeurIPS 2023 Workshop on SyntheticData4ML."],
+          categories: ["generative-models", "spatio-temporal"]
         },
         {
           title: "Hierarchical spatio-temporal uncertainty quantification for distributed energy adoption.",
           authors: "W. Zhou, S. Zhu, F. Qiu, and X. Wu.",
           venue: "IEEE Power & Energy Society General Meeting (PESGM), 2025.",
           links: [],
-          awards: [
-            "Best Paper Award, IEEE Power & Energy Society"
-          ],
-          notes: [
-            "The results were incorporated into the 2025 AES Indiana Integrated Resource Plan (Vol 3)."
-          ]
+          awards: ["Best Paper Award, IEEE Power & Energy Society"],
+          notes: ["The results were incorporated into the 2025 AES Indiana Integrated Resource Plan (Vol 3)."],
+          categories: ["conformal-prediction", "energy-resilience"]
         },
         {
           title: "Recurrent neural goodness-of-fit test for time series.",
@@ -298,7 +297,8 @@ const PUBLICATIONS = {
             { label: "Code",   url: "#" }
           ],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["change-detection"]
         },
         {
           title: "New user event prediction through the lens of causal inference.",
@@ -309,7 +309,8 @@ const PUBLICATIONS = {
             { label: "Data",  url: "#" }
           ],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["fairness-causality"]
         },
         {
           title: "Uncertainty-aware robust learning on noisy graphs.",
@@ -321,7 +322,8 @@ const PUBLICATIONS = {
             { label: "Code",   url: "#" }
           ],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["graph-learning"]
         },
         {
           title: "Black-box optimization with implicit constraints for public policy.",
@@ -336,7 +338,8 @@ const PUBLICATIONS = {
           notes: [
             "A short version is accepted as a referred paper for 2024 INFORMS Optimization Society Conference.",
             "Oral presentation (Special Track on AI for Social Impact), acceptance rate: 23/469 = 4.9%."
-          ]
+          ],
+          categories: ["human-ai", "robust-optimization"]
         }
       ]
     },
@@ -359,9 +362,8 @@ const PUBLICATIONS = {
             "Spotlight, DGM4H Workshop at NeurIPS 2023 (5 out of 44 accepted papers)",
             "Winner, 2023 YinzOR Poster Competition"
           ],
-          notes: [
-            "A short version is accepted by Causal Representation Learning Workshop at NeurIPS 2023."
-          ]
+          notes: ["A short version is accepted by Causal Representation Learning Workshop at NeurIPS 2023."],
+          categories: ["generative-models", "fairness-causality"]
         },
         {
           title: "Assessing electricity service unfairness with transfer counterfactual learning.",
@@ -369,7 +371,8 @@ const PUBLICATIONS = {
           venue: "Causal Representation Learning Workshop at NeurIPS 2023.",
           links: [],
           awards: [],
-          notes: []
+          notes: [],
+          categories: ["fairness-causality", "energy-resilience"]
         },
         {
           title: "Non-stationary spatio-temporal point process modeling for high-resolution COVID-19 data.",
@@ -384,9 +387,8 @@ const PUBLICATIONS = {
             "Winner, 2022 INFORMS Data Mining Best Applied Paper",
             "Runner up, 2022 INFORMS Poster Competition"
           ],
-          notes: [
-            "Accepted for presentation at 2022 INFORMS Workshop on Data Science."
-          ]
+          notes: ["Accepted for presentation at 2022 INFORMS Workshop on Data Science."],
+          categories: ["spatio-temporal"]
         },
         {
           title: "Sequential adversarial anomaly detection for one-class event data.",
@@ -397,10 +399,9 @@ const PUBLICATIONS = {
             { label: "Slides", url: "#" },
             { label: "Code",   url: "#" }
           ],
-          awards: [
-            "Runner up, Best Applied Paper Competition at 2020 INFORMS DMDA Workshop"
-          ],
-          notes: []
+          awards: ["Runner up, Best Applied Paper Competition at 2020 INFORMS DMDA Workshop"],
+          notes: [],
+          categories: ["change-detection"]
         },
         {
           title: "Multi-resolution spatio-temporal prediction with application to wind power generation.",
@@ -415,7 +416,8 @@ const PUBLICATIONS = {
             "Finalist, Best Applied Paper Competition at 2023 INFORMS DMDA Workshop",
             "Best Student Paper Nominee & full presentation at 2022 INFORMS Workshop on Data Science"
           ],
-          notes: []
+          notes: [],
+          categories: ["spatio-temporal", "energy-resilience"]
         }
       ]
     }

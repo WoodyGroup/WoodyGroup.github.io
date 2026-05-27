@@ -7,38 +7,90 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     .research-area {
-      padding: 36px 0;
+      padding: 40px 0;
       border-bottom: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: 24px;
-      align-items: start;
     }
     .research-area:last-child { border-bottom: none; }
+
+    .area-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
     .area-icon {
-      width: 48px; height: 48px;
+      width: 44px; height: 44px; flex-shrink: 0;
       background: rgba(196,18,48,0.08);
       border-radius: 6px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
-    .area-body h3 {
-      font-size: 1.15rem;
+    .area-header h3 {
+      font-size: 1.2rem;
       color: var(--dark);
-      margin-bottom: 10px;
     }
-    .area-body p {
+
+    .area-desc {
       font-family: 'Arial', sans-serif;
       font-size: 0.9rem;
       color: var(--gray);
       line-height: 1.65;
-      max-width: 680px;
+      max-width: 700px;
+      margin-bottom: 14px;
     }
-    .area-body p + p { margin-top: 10px; }
-    .area-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
-    @media (max-width: 600px) {
-      .research-area { grid-template-columns: 1fr; }
+
+    .area-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 22px; }
+
+    /* Paper list under each area */
+    .area-papers { list-style: none; border-top: 1px solid var(--border); }
+
+    .area-paper-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
     }
+    .area-paper-item:last-child { border-bottom: none; }
+
+    .area-paper-title {
+      font-size: 0.93rem;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+    .area-paper-meta {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      color: #888;
+      font-style: italic;
+    }
+    .area-paper-links { display: inline-flex; gap: 5px; margin-left: 8px; vertical-align: middle; }
+    .area-paper-tag {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.7rem;
+      padding: 1px 8px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      color: #555;
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+    .area-paper-tag:hover { border-color: var(--red); color: var(--red); text-decoration: none; }
+
+    .papers-label {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #999;
+      margin-bottom: 6px;
+    }
+
+    .see-all {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: var(--red);
+      text-decoration: none;
+      margin-top: 8px;
+      display: inline-block;
+    }
+    .see-all:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -47,93 +99,23 @@
   <a class="nav-logo" href="index.html">ADIL <span>@ CMU</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="people.html">People</a></li>
     <li><a href="research.html" class="active">Research</a></li>
+    <li><a href="people.html">People</a></li>
     <li><a href="publications.html">Publications</a></li>
   </ul>
 </nav>
 
 <div class="page-hero">
   <div class="container">
-    <p class="eyebrow">What We Do</p>
+    <p class="eyebrow">What we do</p>
     <h1>Research</h1>
     <p>We build principled methods at the intersection of machine learning, optimization, and real-world decision-making.</p>
   </div>
 </div>
 
 <section class="pad">
-  <div class="container">
-
-    <div class="research-area">
-      <div class="area-icon">&#127919;</div>
-      <div class="area-body">
-        <h3>Decision-Focused Learning</h3>
-        <p>Traditional ML pipelines separate prediction from optimization. We integrate learned models directly into optimization loops, training representations that minimize downstream decision regret rather than prediction error alone.</p>
-        <p>Our methods address challenges including non-differentiable optimization layers, combinatorial action spaces, and distribution shift between train and deploy environments.</p>
-        <div class="area-tags">
-          <span class="tag-pill">Predict-then-Optimize</span>
-          <span class="tag-pill">Task-Based Learning</span>
-          <span class="tag-pill">End-to-End Differentiable Optimization</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="research-area">
-      <div class="area-icon">&#128737;</div>
-      <div class="area-body">
-        <h3>Robust Optimization &amp; Uncertainty</h3>
-        <p>Real decisions are made under uncertainty. We develop optimization frameworks that remain reliable under distributional shift, model misspecification, and adversarial perturbations — without being overly conservative.</p>
-        <p>This includes distributionally robust optimization, conformal prediction for optimization, and data-driven ambiguity set construction.</p>
-        <div class="area-tags">
-          <span class="tag-pill">Distributionally Robust Optimization</span>
-          <span class="tag-pill">Uncertainty Quantification</span>
-          <span class="tag-pill">Conformal Prediction</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="research-area">
-      <div class="area-icon">&#9889;</div>
-      <div class="area-body">
-        <h3>Energy Systems Resilience</h3>
-        <p>Power grids face growing uncertainty from renewable variability, extreme weather, and evolving demand patterns. We apply data-driven optimization and machine learning to grid planning, dispatch, and resilience under stress.</p>
-        <p>Application areas include electricity market design, demand forecasting, infrastructure hardening, and post-disaster restoration planning.</p>
-        <div class="area-tags">
-          <span class="tag-pill">Power Grid Optimization</span>
-          <span class="tag-pill">Demand Forecasting</span>
-          <span class="tag-pill">Infrastructure Resilience</span>
-          <span class="tag-pill">Electricity Markets</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="research-area">
-      <div class="area-icon">&#129302;</div>
-      <div class="area-body">
-        <h3>AI for High-Stakes Decisions</h3>
-        <p>Deploying AI in healthcare, logistics, and public safety requires more than accuracy — it requires reliability, interpretability, and accountability. We design trustworthy AI systems that support human experts in consequential decisions.</p>
-        <div class="area-tags">
-          <span class="tag-pill">Trustworthy AI</span>
-          <span class="tag-pill">Human-in-the-Loop</span>
-          <span class="tag-pill">Safety-Critical Systems</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="research-area">
-      <div class="area-icon">&#128200;</div>
-      <div class="area-body">
-        <h3>Online Learning &amp; Sequential Decisions</h3>
-        <p>Many real-world problems unfold over time — prices shift, resources deplete, and the environment responds to our choices. We study online learning, multi-armed bandits, and reinforcement learning for such sequential settings, with emphasis on regret minimization and safe exploration.</p>
-        <div class="area-tags">
-          <span class="tag-pill">Online Learning</span>
-          <span class="tag-pill">Bandits</span>
-          <span class="tag-pill">Reinforcement Learning</span>
-          <span class="tag-pill">Regret Minimization</span>
-        </div>
-      </div>
-    </div>
-
+  <div class="container" id="research-root">
+    <!-- rendered by JS -->
   </div>
 </section>
 
@@ -143,6 +125,134 @@
     <a href="https://www.andrew.cmu.edu/user/shixianz/" target="_blank" rel="noopener">Shixiang (Woody) Zhu</a>
   </p>
 </footer>
+
+<script src="data/publications.js"></script>
+<script>
+  /* ── Research area definitions ──────────────────────────────────────
+   * categories: which PUBLICATIONS category keys count for this area.
+   * icon, title, description, tags: static display content.
+   * ------------------------------------------------------------------ */
+  const AREAS = [
+    {
+      id: "decision-learning",
+      icon: "🎯",
+      title: "Decision-Focused Learning",
+      description: "Traditional ML pipelines separate prediction from optimization. We integrate learned models directly into optimization loops, training representations that minimize downstream decision regret rather than prediction error alone. Our methods address non-differentiable optimization layers, combinatorial action spaces, and distribution shift between training and deployment.",
+      tags: ["Predict-then-Optimize", "Task-Based Learning", "End-to-End Differentiable Optimization"],
+      categories: ["decision-learning"]
+    },
+    {
+      id: "conformal-prediction",
+      icon: "📐",
+      title: "Conformal Prediction & Uncertainty",
+      description: "We develop conformal prediction methods that produce distribution-free, statistically rigorous uncertainty sets — and connect them directly to downstream optimization and decision-making. Applications span risk assessment, robust optimization under uncertainty, and reliable deployment of ML models in high-stakes settings.",
+      tags: ["Conformal Prediction", "Uncertainty Quantification", "Risk Control", "Distributionally Robust Optimization"],
+      categories: ["conformal-prediction"]
+    },
+    {
+      id: "robust-optimization",
+      icon: "🛡️",
+      title: "Robust Optimization",
+      description: "Real decisions must remain reliable under distributional shift, model misspecification, and adversarial perturbations. We develop robust and distributionally robust optimization frameworks with data-driven ambiguity sets, including connections to conformal prediction and online learning.",
+      tags: ["Robust Optimization", "Ambiguity Sets", "Adversarial Robustness"],
+      categories: ["robust-optimization"]
+    },
+    {
+      id: "energy-resilience",
+      icon: "⚡",
+      title: "Energy Systems Resilience",
+      description: "Power grids face growing uncertainty from renewable variability, extreme weather, and evolving demand. We apply data-driven optimization and ML to grid planning, demand forecasting, and resilience under stress — with direct partnerships with utilities and real-world deployment.",
+      tags: ["Power Grid Optimization", "Demand Forecasting", "Infrastructure Resilience", "Electricity Markets"],
+      categories: ["energy-resilience"]
+    },
+    {
+      id: "generative-models",
+      icon: "🎲",
+      title: "Generative & Probabilistic Models",
+      description: "We build generative models for structured and sequential data — including temporal point processes, tabular time series, and counterfactual distributions. Our focus is on models that are not only statistically well-calibrated but also useful for downstream decision-making and policy evaluation.",
+      tags: ["Generative Models", "Temporal Point Processes", "Synthetic Data", "Counterfactual Modeling"],
+      categories: ["generative-models", "spatio-temporal"]
+    },
+    {
+      id: "sequential-detection",
+      icon: "📈",
+      title: "Sequential Detection & Change-Point",
+      description: "Many critical systems require real-time monitoring and rapid detection of anomalies or structural changes. We develop sequential testing, change-point detection, and goodness-of-fit methods grounded in modern machine learning — with applications to grid monitoring, public health, and event data.",
+      tags: ["Change-Point Detection", "Sequential Testing", "Anomaly Detection", "Score-Based Methods"],
+      categories: ["change-detection"]
+    },
+    {
+      id: "fairness-policy",
+      icon: "⚖️",
+      title: "Fairness, Causality & Policy",
+      description: "Deploying AI in high-stakes settings requires more than accuracy. We study causal inference for counterfactual fairness, human-AI collaboration, and optimization under implicit societal constraints — with applications to healthcare, energy equity, and public policy.",
+      tags: ["Counterfactual Fairness", "Causal Inference", "Human-AI Collaboration", "Policy Optimization"],
+      categories: ["fairness-causality", "human-ai"]
+    }
+  ];
+
+  function esc(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  /* Collect all papers across all sections into a flat list, preserving order */
+  function allPapers() {
+    const out = [];
+    PUBLICATIONS.sections.forEach(sec => {
+      sec.papers.forEach(p => out.push(p));
+    });
+    return out;
+  }
+
+  const papers = allPapers();
+  const root = document.getElementById('research-root');
+
+  AREAS.forEach(area => {
+    const matching = papers.filter(p =>
+      p.categories && p.categories.some(c => area.categories.includes(c))
+    );
+
+    const div = document.createElement('div');
+    div.className = 'research-area';
+    div.id = area.id;
+
+    // Header
+    let html = `
+      <div class="area-header">
+        <div class="area-icon">${area.icon}</div>
+        <h3>${esc(area.title)}</h3>
+      </div>
+      <p class="area-desc">${esc(area.description)}</p>
+      <div class="area-tags">
+        ${area.tags.map(t => `<span class="tag-pill">${esc(t)}</span>`).join('')}
+      </div>`;
+
+    // Representative papers (up to 5)
+    if (matching.length > 0) {
+      const shown = matching.slice(0, 5);
+      html += `<p class="papers-label">Representative papers</p><ul class="area-papers">`;
+      shown.forEach(p => {
+        const meta = p.venue ? esc(p.venue) : '<em>Preprint</em>';
+        const linkTags = (p.links || []).map(l =>
+          `<a class="area-paper-tag" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`
+        ).join('');
+        html += `
+          <li class="area-paper-item">
+            <div class="area-paper-title">${esc(p.title)}</div>
+            <span class="area-paper-meta">${meta}</span>
+            ${linkTags ? `<span class="area-paper-links">${linkTags}</span>` : ''}
+          </li>`;
+      });
+      html += `</ul>`;
+      if (matching.length > 5) {
+        html += `<a class="see-all" href="publications.html">See all ${matching.length} papers &rarr;</a>`;
+      }
+    }
+
+    div.innerHTML = html;
+    root.appendChild(div);
+  });
+</script>
 
 </body>
 </html>
