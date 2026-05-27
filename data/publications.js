@@ -39,7 +39,9 @@ const PUBLICATIONS = {
           title: "Learning polyhedral conformal sets for robust optimization.",
           authors: "S. Chen*, W. Zhou*, and S. Zhu.",
           venue: "",
-          links: [],
+          links: [
+            { label: "arXiv", url: "https://arxiv.org/pdf/2605.08506" }
+          ],
           awards: [],
           notes: [],
           categories: ["conformal-prediction", "robust-optimization"]
