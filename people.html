@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>People — ADIL @ CMU</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .pi-section {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 36px;
+      align-items: start;
+      padding: 32px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    .pi-avatar {
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--red) 0%, #7d0c1e 100%);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      color: rgba(255,255,255,0.65);
+    }
+    .pi-info h2 {
+      font-size: 1.5rem;
+      font-weight: normal;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .pi-info .pi-title {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--red);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+    .pi-info p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      margin-bottom: 10px;
+      max-width: 600px;
+    }
+    .pi-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+    .group-subtitle {
+      font-family: 'Arial', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      border-left: 3px solid var(--red);
+      padding-left: 10px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 600px) {
+      .pi-section { grid-template-columns: 1fr; }
+      .pi-avatar { width: 120px; height: 120px; font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">ADIL <span>@ CMU</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="people.html" class="active">People</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+    <li><a href="joining.html">Joining</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="eyebrow">The Team</p>
+    <h1>People</h1>
+    <p>Faculty, students, and collaborators driving our research forward.</p>
+  </div>
+</div>
+
+<section class="pad">
+  <div class="container">
+
+    <!-- PI -->
+    <div class="pi-section">
+      <div class="pi-avatar">WZ</div>
+      <div class="pi-info">
+        <h2>Shixiang (Woody) Zhu</h2>
+        <div class="pi-title">Principal Investigator &mdash; Assistant Professor, CMU</div>
+        <p>Woody's research focuses on decision-focused machine learning, robust optimization, and their applications to energy systems and high-stakes decision-making. He joined Carnegie Mellon University as an Assistant Professor in 2024.</p>
+        <p>Before CMU, he held research positions at [Previous Institution]. He received his Ph.D. from [University].</p>
+        <div class="pi-links">
+          <a class="btn btn-red" href="https://www.andrew.cmu.edu/user/shixianz/" target="_blank" rel="noopener">Personal Website</a>
+          <a class="btn btn-outline" href="mailto:shixianz@andrew.cmu.edu">Email</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PhD Students -->
+    <div class="group-subtitle">PhD Students</div>
+    <div class="people-grid">
+
+      <div class="person-card">
+        <div class="person-avatar">WZ</div>
+        <div class="person-body">
+          <div class="person-name">Wenbin Zhou</div>
+          <div class="person-role">PhD Student</div>
+          <a class="person-link" href="https://wbzhou2001.github.io/" target="_blank" rel="noopener">Website &rarr;</a>
+        </div>
+      </div>
+
+      <div class="person-card">
+        <div class="person-avatar">SC</div>
+        <div class="person-body">
+          <div class="person-name">Shuyi Chen</div>
+          <div class="person-role">PhD Student</div>
+          <a class="person-link" href="https://shuyiryanchen.github.io/" target="_blank" rel="noopener">Website &rarr;</a>
+        </div>
+      </div>
+
+      <div class="person-card">
+        <div class="person-avatar">MZ</div>
+        <div class="person-body">
+          <div class="person-name">Minxing Zheng</div>
+          <div class="person-role">PhD Student</div>
+          <a class="person-link" href="https://scholar.google.com/citations?hl=en&user=f8xblKQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Google Scholar &rarr;</a>
+        </div>
+      </div>
+
+      <div class="person-card">
+        <div class="person-avatar">WG</div>
+        <div class="person-body">
+          <div class="person-name">Wei Gu</div>
+          <div class="person-role">PhD Student</div>
+          <a class="person-link" href="https://www.linkedin.com/in/wei-gu-524341154" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Adaptive Decision Intelligence Lab</div>
+  <p>Carnegie Mellon University &nbsp;&bull;&nbsp;
+    <a href="https://www.andrew.cmu.edu/user/shixianz/" target="_blank" rel="noopener">Shixiang (Woody) Zhu</a>
+  </p>
+</footer>
+
+</body>
+</html>

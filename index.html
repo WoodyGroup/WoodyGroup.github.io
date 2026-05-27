@@ -3,394 +3,94 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CMU Adaptive Decision Intelligence Lab</title>
+  <title>ADIL @ CMU — Adaptive Decision Intelligence Lab</title>
+  <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    :root {
-      --cmu-red: #C41230;
-      --cmu-dark: #1a1a2e;
-      --cmu-gray: #4a4a4a;
-      --cmu-light: #f7f7f7;
-      --accent: #e8c547;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Georgia', serif;
-      color: #333;
-      background: #fff;
-      line-height: 1.7;
-    }
-
-    /* ── Nav ── */
-    nav {
-      background: var(--cmu-dark);
-      padding: 0 40px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
-    }
-
-    nav .logo {
-      font-family: 'Arial', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    nav .logo span {
-      color: var(--accent);
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 32px;
-    }
-
-    nav ul a {
-      color: rgba(255,255,255,0.78);
-      text-decoration: none;
-      font-family: 'Arial', sans-serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.04em;
-      transition: color 0.2s;
-    }
-
-    nav ul a:hover {
-      color: var(--accent);
-    }
-
-    /* ── Hero ── */
+    /* ── Home-only: full hero ── */
     .hero {
-      background: linear-gradient(135deg, var(--cmu-dark) 0%, #2d1b4e 100%);
+      background: linear-gradient(135deg, var(--dark) 0%, #2d1b4e 100%);
       color: #fff;
-      padding: 100px 40px 80px;
+      padding: 108px 48px 88px;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
-
     .hero::before {
       content: '';
       position: absolute;
-      width: 600px;
-      height: 600px;
+      width: 560px; height: 560px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(196,18,48,0.18) 0%, transparent 70%);
-      top: -200px;
-      right: -100px;
+      top: -180px; right: -80px;
     }
-
     .hero-badge {
       display: inline-block;
-      background: rgba(196,18,48,0.25);
-      border: 1px solid rgba(196,18,48,0.5);
+      background: rgba(196,18,48,0.22);
+      border: 1px solid rgba(196,18,48,0.45);
       color: #f4a4b0;
       font-family: 'Arial', sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 5px 16px;
       border-radius: 20px;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
-
     .hero h1 {
-      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: normal;
-      letter-spacing: -0.01em;
-      margin-bottom: 20px;
-      line-height: 1.25;
+      line-height: 1.2;
+      margin-bottom: 18px;
     }
-
-    .hero h1 em {
-      font-style: normal;
-      color: var(--accent);
-    }
-
+    .hero h1 em { font-style: normal; color: var(--accent); }
     .hero p {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.72);
-      max-width: 640px;
-      margin: 0 auto 36px;
+      font-size: 1.08rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 580px;
+      margin: 0 auto 34px;
     }
-
-    .hero-links {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 11px 28px;
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-hero-outline {
+      border: 1.5px solid rgba(255,255,255,0.38);
+      color: #fff;
+      padding: 10px 26px;
       border-radius: 4px;
       font-family: 'Arial', sans-serif;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.2s;
+      transition: all 0.18s;
     }
-
-    .btn-primary {
-      background: var(--cmu-red);
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: #a30f28;
-    }
-
-    .btn-outline {
-      border: 1.5px solid rgba(255,255,255,0.4);
-      color: #fff;
-    }
-
-    .btn-outline:hover {
+    .btn-hero-outline:hover {
       border-color: #fff;
       background: rgba(255,255,255,0.08);
+      text-decoration: none;
     }
-
-    /* ── Section shell ── */
-    section {
-      padding: 80px 40px;
-    }
-
-    .container {
-      max-width: 1060px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-family: 'Arial', sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--cmu-red);
-      margin-bottom: 8px;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      font-weight: normal;
-      color: var(--cmu-dark);
-      margin-bottom: 48px;
-    }
-
-    /* ── About ── */
-    #about {
-      background: var(--cmu-light);
-    }
-
-    .about-grid {
+    /* about split */
+    .home-about {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      gap: 52px;
       align-items: start;
     }
-
-    .about-text p {
-      color: var(--cmu-gray);
-      margin-bottom: 16px;
-      font-size: 1.02rem;
-    }
-
-    .research-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .tag {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-left: 3px solid var(--cmu-red);
-      padding: 6px 14px;
-      font-family: 'Arial', sans-serif;
-      font-size: 0.82rem;
-      color: var(--cmu-gray);
-      border-radius: 2px;
-    }
-
-    /* ── People ── */
-    #people {
-      background: #fff;
-    }
-
-    .people-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 28px;
-    }
-
-    .person-card {
-      background: var(--cmu-light);
-      border-radius: 6px;
-      overflow: hidden;
-      transition: box-shadow 0.2s, transform 0.2s;
-      text-align: center;
-    }
-
-    .person-card:hover {
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-      transform: translateY(-3px);
-    }
-
-    .person-avatar {
-      width: 100%;
-      aspect-ratio: 1;
-      background: linear-gradient(135deg, var(--cmu-dark) 0%, #3d2b6e 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.8rem;
-      color: rgba(255,255,255,0.7);
-      font-family: 'Georgia', serif;
-      font-style: italic;
-    }
-
-    .person-info {
-      padding: 18px 16px;
-    }
-
-    .person-name {
-      font-size: 1rem;
-      font-weight: bold;
-      color: var(--cmu-dark);
-      margin-bottom: 4px;
-    }
-
-    .person-role {
-      font-family: 'Arial', sans-serif;
-      font-size: 0.78rem;
-      color: var(--cmu-red);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .person-link {
-      display: inline-block;
-      font-family: 'Arial', sans-serif;
-      font-size: 0.78rem;
-      color: #555;
-      text-decoration: none;
-      border: 1px solid #ccc;
-      padding: 4px 12px;
-      border-radius: 20px;
-      transition: all 0.2s;
-    }
-
-    .person-link:hover {
-      border-color: var(--cmu-red);
-      color: var(--cmu-red);
-      background: rgba(196,18,48,0.04);
-    }
-
-    /* PI card gets special treatment */
-    .person-card.pi .person-avatar {
-      background: linear-gradient(135deg, var(--cmu-red) 0%, #7d0c1e 100%);
-    }
-
-    .person-card.pi .person-role {
-      color: var(--cmu-dark);
-      font-weight: 700;
-    }
-
-    /* ── Research ── */
-    #research {
-      background: var(--cmu-light);
-    }
-
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .research-card {
-      background: #fff;
-      border-radius: 6px;
-      padding: 28px 24px;
-      border-top: 3px solid var(--cmu-red);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-
-    .research-card .icon {
-      font-size: 1.8rem;
-      margin-bottom: 14px;
-    }
-
-    .research-card h3 {
-      font-size: 1.05rem;
-      color: var(--cmu-dark);
-      margin-bottom: 10px;
-    }
-
-    .research-card p {
-      font-family: 'Arial', sans-serif;
-      font-size: 0.86rem;
-      color: var(--cmu-gray);
-      line-height: 1.6;
-    }
-
-    /* ── Footer ── */
-    footer {
-      background: var(--cmu-dark);
-      color: rgba(255,255,255,0.55);
-      text-align: center;
-      padding: 36px 40px;
-      font-family: 'Arial', sans-serif;
-      font-size: 0.82rem;
-    }
-
-    footer a {
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: var(--accent);
-    }
-
-    footer .footer-logo {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 700px) {
-      nav ul { display: none; }
-      .about-grid { grid-template-columns: 1fr; }
-      section { padding: 60px 20px; }
+    @media (max-width: 680px) {
       .hero { padding: 72px 20px 60px; }
+      .home-about { grid-template-columns: 1fr; gap: 28px; }
     }
+    .tag-wrap { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 10px; }
   </style>
 </head>
 <body>
 
-<!-- Nav -->
 <nav>
-  <div class="logo">ADIL &nbsp;<span>@ CMU</span></div>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#people">People</a></li>
-    <li><a href="#research">Research</a></li>
+  <a class="nav-logo" href="index.html">ADIL <span>@ CMU</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="people.html">People</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+    <li><a href="joining.html">Joining</a></li>
   </ul>
 </nav>
 
@@ -398,136 +98,121 @@
 <header class="hero">
   <div class="hero-badge">Carnegie Mellon University</div>
   <h1>Adaptive Decision<br><em>Intelligence Lab</em></h1>
-  <p>We develop machine learning and optimization methods to enable robust, data-driven decisions in complex, high-stakes environments.</p>
-  <div class="hero-links">
-    <a class="btn btn-primary" href="#people">Meet the Team</a>
-    <a class="btn btn-outline" href="#research">Our Research</a>
+  <p>We develop machine learning and optimization methods for robust, data-driven decisions in complex, high-stakes environments.</p>
+  <div class="hero-btns">
+    <a class="btn btn-red" href="people.html">Meet the Team</a>
+    <a class="btn-hero-outline" href="research.html">Our Research</a>
+    <a class="btn-hero-outline" href="joining.html">Join Us</a>
   </div>
 </header>
 
 <!-- About -->
-<section id="about">
+<section class="pad bg-light">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-text">
-        <p class="section-label">About the Lab</p>
+    <div class="home-about">
+      <div>
+        <p class="eyebrow">About the Lab</p>
         <h2 class="section-title">Bridging Learning &amp; Decision-Making</h2>
-        <p>The Adaptive Decision Intelligence Lab (ADIL) at Carnegie Mellon University investigates the intersection of machine learning, optimization, and sequential decision-making under uncertainty.</p>
-        <p>Our work spans theoretical foundations and real-world applications — from energy systems resilience to AI-assisted planning — with an emphasis on methods that are both statistically rigorous and practically deployable.</p>
+        <p style="color:var(--gray);font-size:1rem;margin-bottom:14px;">The Adaptive Decision Intelligence Lab (ADIL) at Carnegie Mellon University investigates the intersection of machine learning, optimization, and sequential decision-making under uncertainty.</p>
+        <p style="color:var(--gray);font-size:1rem;">Our work spans theoretical foundations and real-world applications — from energy systems resilience to AI-assisted planning — with an emphasis on methods that are both statistically rigorous and practically deployable.</p>
+        <br>
+        <a class="btn btn-outline" href="research.html">Explore Research &rarr;</a>
       </div>
       <div>
-        <p class="section-label" style="margin-bottom:16px;">Research Themes</p>
-        <div class="research-tags">
-          <span class="tag">Decision-Focused Learning</span>
-          <span class="tag">Robust Optimization</span>
-          <span class="tag">Energy Systems Resilience</span>
-          <span class="tag">AI for High-Stakes Decisions</span>
-          <span class="tag">Online &amp; Reinforcement Learning</span>
-          <span class="tag">Uncertainty Quantification</span>
-          <span class="tag">Operations Research</span>
+        <p class="eyebrow" style="margin-bottom:14px;">Research Themes</p>
+        <div class="tag-wrap">
+          <span class="tag-pill">Decision-Focused Learning</span>
+          <span class="tag-pill">Robust Optimization</span>
+          <span class="tag-pill">Energy Systems Resilience</span>
+          <span class="tag-pill">AI for High-Stakes Decisions</span>
+          <span class="tag-pill">Online &amp; Reinforcement Learning</span>
+          <span class="tag-pill">Uncertainty Quantification</span>
+          <span class="tag-pill">Operations Research</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- People -->
-<section id="people">
+<!-- News -->
+<section class="pad">
   <div class="container">
-    <p class="section-label">The Team</p>
-    <h2 class="section-title">People</h2>
-    <div class="people-grid">
+    <p class="eyebrow">Latest</p>
+    <h2 class="section-title">News</h2>
+    <ul class="news-list">
+      <li class="news-item">
+        <span class="news-date">May 2025</span>
+        <span class="news-text">Paper accepted at ICML 2025 — <em>"Decision-Focused Learning under Distribution Shift."</em></span>
+      </li>
+      <li class="news-item">
+        <span class="news-date">Jan 2025</span>
+        <span class="news-text">New PhD students Wenbin Zhou and Shuyi Chen join the lab.</span>
+      </li>
+      <li class="news-item">
+        <span class="news-date">Sep 2024</span>
+        <span class="news-text">Woody Zhu joins CMU as Assistant Professor.</span>
+      </li>
+    </ul>
+  </div>
+</section>
 
-      <!-- PI -->
+<!-- Team preview -->
+<section class="pad bg-light">
+  <div class="container">
+    <p class="eyebrow">People</p>
+    <h2 class="section-title">The Team</h2>
+    <div class="people-grid">
       <div class="person-card pi">
         <div class="person-avatar">WZ</div>
-        <div class="person-info">
+        <div class="person-body">
           <div class="person-name">Shixiang (Woody) Zhu</div>
           <div class="person-role">Principal Investigator</div>
           <a class="person-link" href="https://www.andrew.cmu.edu/user/shixianz/" target="_blank" rel="noopener">Website &rarr;</a>
         </div>
       </div>
-
-      <!-- Members -->
       <div class="person-card">
         <div class="person-avatar">WZ</div>
-        <div class="person-info">
+        <div class="person-body">
           <div class="person-name">Wenbin Zhou</div>
           <div class="person-role">PhD Student</div>
           <a class="person-link" href="https://wbzhou2001.github.io/" target="_blank" rel="noopener">Website &rarr;</a>
         </div>
       </div>
-
       <div class="person-card">
         <div class="person-avatar">SC</div>
-        <div class="person-info">
+        <div class="person-body">
           <div class="person-name">Shuyi Chen</div>
           <div class="person-role">PhD Student</div>
           <a class="person-link" href="https://shuyiryanchen.github.io/" target="_blank" rel="noopener">Website &rarr;</a>
         </div>
       </div>
-
       <div class="person-card">
         <div class="person-avatar">MZ</div>
-        <div class="person-info">
+        <div class="person-body">
           <div class="person-name">Minxing Zheng</div>
           <div class="person-role">PhD Student</div>
-          <a class="person-link" href="https://scholar.google.com/citations?hl=en&user=f8xblKQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Google Scholar &rarr;</a>
+          <a class="person-link" href="https://scholar.google.com/citations?hl=en&user=f8xblKQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Scholar &rarr;</a>
         </div>
       </div>
-
       <div class="person-card">
         <div class="person-avatar">WG</div>
-        <div class="person-info">
+        <div class="person-body">
           <div class="person-name">Wei Gu</div>
           <div class="person-role">PhD Student</div>
           <a class="person-link" href="https://www.linkedin.com/in/wei-gu-524341154" target="_blank" rel="noopener">LinkedIn &rarr;</a>
         </div>
       </div>
-
     </div>
+    <br>
+    <a class="btn btn-outline" href="people.html">View All People &rarr;</a>
   </div>
 </section>
 
-<!-- Research -->
-<section id="research">
-  <div class="container">
-    <p class="section-label">What We Do</p>
-    <h2 class="section-title">Research Areas</h2>
-    <div class="research-grid">
-
-      <div class="research-card">
-        <div class="icon">&#127919;</div>
-        <h3>Decision-Focused Learning</h3>
-        <p>Integrating predictive models directly into optimization pipelines so that learned representations are calibrated for downstream decision quality, not just prediction accuracy.</p>
-      </div>
-
-      <div class="research-card">
-        <div class="icon">&#128737;</div>
-        <h3>Robust Optimization</h3>
-        <p>Developing optimization frameworks that remain reliable under distributional shift, model misspecification, and adversarial perturbations.</p>
-      </div>
-
-      <div class="research-card">
-        <div class="icon">&#9889;</div>
-        <h3>Energy Systems Resilience</h3>
-        <p>Applying data-driven methods to power grid planning, demand forecasting, and infrastructure resilience under extreme events and climate uncertainty.</p>
-      </div>
-
-      <div class="research-card">
-        <div class="icon">&#129302;</div>
-        <h3>AI for High-Stakes Decisions</h3>
-        <p>Designing trustworthy AI systems for critical domains — healthcare, logistics, and public safety — where errors carry significant real-world consequences.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
 <footer>
-  <div class="footer-logo">Adaptive Decision Intelligence Lab</div>
-  <p>Carnegie Mellon University &nbsp;&bull;&nbsp; <a href="https://www.andrew.cmu.edu/user/shixianz/" target="_blank" rel="noopener">Shixiang (Woody) Zhu</a></p>
+  <div class="footer-name">Adaptive Decision Intelligence Lab</div>
+  <p>Carnegie Mellon University &nbsp;&bull;&nbsp;
+    <a href="https://www.andrew.cmu.edu/user/shixianz/" target="_blank" rel="noopener">Shixiang (Woody) Zhu</a>
+  </p>
 </footer>
 
 </body>
