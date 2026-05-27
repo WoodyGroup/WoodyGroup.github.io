@@ -150,11 +150,12 @@
         li.className = 'pub-item';
 
         const realLinks = (p.links || []).filter(l => l.url && l.url !== '#');
-        const firstLink = realLinks.length ? realLinks[0] : null;
-        const titleHtml = firstLink
-          ? `<a class="pub-title-link" href="${esc(firstLink.url)}" target="_blank" rel="noopener">${esc(p.title)}</a>`
+        const PREF = ['arxiv', 'ssrn', 'pdf'];
+        const titleLink = realLinks.find(l => PREF.includes(l.label.toLowerCase())) || realLinks[0] || null;
+        const titleHtml = titleLink
+          ? `<a class="pub-title-link" href="${esc(titleLink.url)}" target="_blank" rel="noopener">${esc(p.title)}</a>`
           : `<span class="pub-title">${esc(p.title)}</span>`;
-        const extraLinks = realLinks.slice(1).map(l => {
+        const extraLinks = realLinks.filter(l => l !== titleLink).map(l => {
           const cls = l.label === 'PDF' ? 'pub-tag pdf' : 'pub-tag';
           return `<a class="${cls}" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`;
         }).join('');

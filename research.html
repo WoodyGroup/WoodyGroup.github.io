@@ -243,11 +243,12 @@
       html += `<p class="papers-label">Papers</p><ul class="area-papers">`;
       matching.forEach((p, idx) => {
         const realLinks = (p.links || []).filter(l => l.url && l.url !== '#');
-        const firstLink = realLinks.length ? realLinks[0] : null;
-        const titleHtml = firstLink
-          ? `<a class="area-paper-title-link" href="${esc(firstLink.url)}" target="_blank" rel="noopener">${esc(p.title)}</a>`
+        const PREF = ['arxiv', 'ssrn', 'pdf'];
+        const titleLink = realLinks.find(l => PREF.includes(l.label.toLowerCase())) || realLinks[0] || null;
+        const titleHtml = titleLink
+          ? `<a class="area-paper-title-link" href="${esc(titleLink.url)}" target="_blank" rel="noopener">${esc(p.title)}</a>`
           : `<span class="area-paper-title">${esc(p.title)}</span>`;
-        const extraLinks = realLinks.slice(1).map(l =>
+        const extraLinks = realLinks.filter(l => l !== titleLink).map(l =>
           `<a class="area-paper-tag" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`
         ).join('');
         const awardHtml = (p.awards || []).map(a =>

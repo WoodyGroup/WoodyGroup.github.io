@@ -138,48 +138,7 @@
 <section class="pad bg-light">
   <div class="container">
     <h2 class="section-title">The team</h2>
-    <div class="people-grid">
-      <div class="person-card pi">
-        <div class="person-avatar">WZ</div>
-        <div class="person-body">
-          <div class="person-name">Shixiang (Woody) Zhu</div>
-          <div class="person-role">Faculty</div>
-          <a class="person-link" href="https://www.andrew.cmu.edu/user/shixianz/" target="_blank" rel="noopener">Website &rarr;</a>
-        </div>
-      </div>
-      <div class="person-card">
-        <div class="person-avatar">WZ</div>
-        <div class="person-body">
-          <div class="person-name">Wenbin Zhou</div>
-          <div class="person-role">PhD Student</div>
-          <a class="person-link" href="https://wbzhou2001.github.io/" target="_blank" rel="noopener">Website &rarr;</a>
-        </div>
-      </div>
-      <div class="person-card">
-        <div class="person-avatar">SC</div>
-        <div class="person-body">
-          <div class="person-name">Shuyi Chen</div>
-          <div class="person-role">PhD Student</div>
-          <a class="person-link" href="https://shuyiryanchen.github.io/" target="_blank" rel="noopener">Website &rarr;</a>
-        </div>
-      </div>
-      <div class="person-card">
-        <div class="person-avatar">MZ</div>
-        <div class="person-body">
-          <div class="person-name">Minxing Zheng</div>
-          <div class="person-role">PhD Student</div>
-          <a class="person-link" href="https://scholar.google.com/citations?hl=en&user=f8xblKQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Scholar &rarr;</a>
-        </div>
-      </div>
-      <div class="person-card">
-        <div class="person-avatar">WG</div>
-        <div class="person-body">
-          <div class="person-name">Wei Gu</div>
-          <div class="person-role">PhD Student</div>
-          <a class="person-link" href="https://www.linkedin.com/in/wei-gu-524341154" target="_blank" rel="noopener">LinkedIn &rarr;</a>
-        </div>
-      </div>
-    </div>
+    <div class="people-grid" id="team-grid"></div>
     <br>
     <a class="btn btn-outline" href="people.html">View all people &rarr;</a>
   </div>
@@ -195,6 +154,7 @@
 <!-- Data -->
 <script src="data/news.js"></script>
 <script src="data/publications.js"></script>
+<script src="data/people.js"></script>
 <script>
   /* ── Research theme tags (link to research.html anchors) ── */
   const RESEARCH_AREAS = [
@@ -227,6 +187,34 @@
     li.className = 'news-item';
     li.innerHTML = `<span class="news-date">${esc(item.date)}</span><span class="news-text">${esc(item.text)}</span>`;
     newsList.appendChild(li);
+  });
+
+  /* ── Team preview ── */
+  const teamGrid = document.getElementById('team-grid');
+  const teamMembers = [
+    ...(PEOPLE.faculty      || []).map(p => ({ ...p, _section: 'faculty' })),
+    ...(PEOPLE.postdocs     || []).map(p => ({ ...p, _section: 'postdoc' })),
+    ...(PEOPLE.phd_students || []).map(p => ({ ...p, _section: 'phd' })),
+  ];
+  teamMembers.forEach(person => {
+    const isPi = person._section === 'faculty';
+    const avatarContent = person.photo
+      ? `<img src="${esc(person.photo)}" alt="${esc(person.name)}">`
+      : esc(person.initials);
+    const firstLink = (person.links || [])[0];
+    const linkHtml = firstLink
+      ? `<a class="person-link" href="${esc(firstLink.url)}" target="_blank" rel="noopener">${esc(firstLink.label)} &rarr;</a>`
+      : '';
+    const card = document.createElement('div');
+    card.className = isPi ? 'person-card pi' : 'person-card';
+    card.innerHTML = `
+      <div class="person-avatar">${avatarContent}</div>
+      <div class="person-body">
+        <div class="person-name">${esc(person.name)}</div>
+        <div class="person-role">${esc(person.role)}</div>
+        ${linkHtml}
+      </div>`;
+    teamGrid.appendChild(card);
   });
 </script>
 

@@ -68,7 +68,9 @@ const PUBLICATIONS = {
           title: "Should humans be in the loop? Human-AI collaboration paradox and automation cliffs.",
           authors: "W. Gu, M. L. Li, and S. Zhu.",
           venue: "",
-          links: [],
+          links: [
+            { label: "SSRN", url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6417798" }
+          ],
           awards: [],
           notes: [],
           categories: ["human-ai"]
@@ -123,6 +125,7 @@ const PUBLICATIONS = {
           authors: "M. L. Li and S. Zhu.",
           venue: "",
           links: [
+            { label: "arXiv",  url: "https://arxiv.org/abs/2409.11535" },
             { label: "Slides", url: "#" },
             { label: "Code",   url: "#" }
           ],
