@@ -42,26 +42,45 @@
     .area-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 22px; }
 
     /* Paper list under each area */
-    .area-papers { list-style: none; border-top: 1px solid var(--border); }
+    .area-papers { list-style: none; margin-top: 4px; }
 
-    .area-paper-item {
-      padding: 12px 0;
-      border-bottom: 1px solid #f0f0f0;
+    .area-paper-item { padding: 10px 0; }
+
+    .area-paper-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 6px;
     }
-    .area-paper-item:last-child { border-bottom: none; }
-
     .area-paper-title {
       font-size: 0.93rem;
       color: var(--dark);
-      margin-bottom: 2px;
     }
-    .area-paper-meta {
+    .area-paper-title-link {
+      font-size: 0.93rem;
+      color: var(--dark);
+      text-decoration: none;
+      border-bottom: 1px solid #ccc;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .area-paper-title-link:hover {
+      color: var(--red);
+      border-bottom-color: var(--red);
+    }
+    .area-paper-authors {
       font-family: 'Arial', sans-serif;
       font-size: 0.8rem;
       color: #888;
-      font-style: italic;
+      margin-top: 2px;
     }
-    .area-paper-links { display: inline-flex; gap: 5px; margin-left: 8px; vertical-align: middle; }
+    .area-paper-award {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      color: #b8860b;
+      margin-top: 2px;
+    }
+    .area-paper-award::before { content: "🏆 "; font-size: 0.72rem; }
+    .area-paper-links { display: inline-flex; gap: 5px; vertical-align: middle; }
     .area-paper-tag {
       font-family: 'Arial', sans-serif;
       font-size: 0.7rem;
@@ -79,18 +98,23 @@
       font-size: 0.78rem;
       font-weight: 700;
       color: #999;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
-    .see-all {
+    .area-paper-extra { display: none; }
+    .area-paper-extra.visible { display: list-item; }
+
+    .expand-btn {
       font-family: 'Arial', sans-serif;
       font-size: 0.82rem;
       color: var(--red);
-      text-decoration: none;
-      margin-top: 8px;
-      display: inline-block;
+      background: none;
+      border: none;
+      padding: 8px 0 0;
+      cursor: pointer;
+      display: block;
     }
-    .see-all:hover { text-decoration: underline; }
+    .expand-btn:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -99,9 +123,9 @@
   <a class="nav-logo" href="index.html">ADIL <span>@ CMU</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
+    <li><a href="publications.html">Publications</a></li>
     <li><a href="research.html" class="active">Research</a></li>
     <li><a href="people.html">People</a></li>
-    <li><a href="publications.html">Publications</a></li>
   </ul>
 </nav>
 
@@ -174,11 +198,11 @@
       categories: ["generative-models", "spatio-temporal"]
     },
     {
-      id: "sequential-detection",
+      id: "change-detection",
       icon: "📈",
-      title: "Sequential Detection & Change-Point",
-      description: "Many critical systems require real-time monitoring and rapid detection of anomalies or structural changes. We develop sequential testing, change-point detection, and goodness-of-fit methods grounded in modern machine learning — with applications to grid monitoring, public health, and event data.",
-      tags: ["Change-Point Detection", "Sequential Testing", "Anomaly Detection", "Score-Based Methods"],
+      title: "Change Point Detection",
+      description: "Many critical systems require real-time monitoring and rapid detection of anomalies or structural changes. We develop change-point detection, goodness-of-fit testing, and anomaly detection methods grounded in modern machine learning — with applications to grid monitoring, public health, and event data.",
+      tags: ["Change-Point Detection", "Anomaly Detection", "Score-Based Methods", "Goodness-of-Fit Testing"],
       categories: ["change-detection"]
     },
     {
@@ -227,31 +251,48 @@
         ${area.tags.map(t => `<span class="tag-pill">${esc(t)}</span>`).join('')}
       </div>`;
 
-    // Representative papers (up to 5)
+    // Papers
+    const PREVIEW = 4;
     if (matching.length > 0) {
-      const shown = matching.slice(0, 5);
-      html += `<p class="papers-label">Representative papers</p><ul class="area-papers">`;
-      shown.forEach(p => {
-        const meta = p.venue ? esc(p.venue) : '<em>Preprint</em>';
-        const linkTags = (p.links || []).map(l =>
+      html += `<p class="papers-label">Papers</p><ul class="area-papers">`;
+      matching.forEach((p, idx) => {
+        const firstLink = p.links && p.links.length ? p.links[0] : null;
+        const titleHtml = firstLink
+          ? `<a class="area-paper-title-link" href="${esc(firstLink.url)}" target="_blank" rel="noopener">${esc(p.title)}</a>`
+          : `<span class="area-paper-title">${esc(p.title)}</span>`;
+        const extraLinks = (p.links || []).slice(1).map(l =>
           `<a class="area-paper-tag" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`
         ).join('');
+        const awardHtml = (p.awards || []).map(a =>
+          `<div class="area-paper-award">${esc(a)}</div>`
+        ).join('');
+        const extraClass = idx >= PREVIEW ? ' area-paper-extra' : '';
         html += `
-          <li class="area-paper-item">
-            <div class="area-paper-title">${esc(p.title)}</div>
-            <span class="area-paper-meta">${meta}</span>
-            ${linkTags ? `<span class="area-paper-links">${linkTags}</span>` : ''}
+          <li class="area-paper-item${extraClass}">
+            <div class="area-paper-title-row">${titleHtml}${extraLinks ? `<span class="area-paper-links">${extraLinks}</span>` : ''}</div>
+            <div class="area-paper-authors">${esc(p.authors)}</div>
+            ${awardHtml}
           </li>`;
       });
       html += `</ul>`;
-      if (matching.length > 5) {
-        html += `<a class="see-all" href="publications.html">See all ${matching.length} papers &rarr;</a>`;
+      if (matching.length > PREVIEW) {
+        const id = 'expand-' + area.id;
+        html += `<button class="expand-btn" id="${id}" onclick="togglePapers('${area.id}', ${matching.length})">Show all ${matching.length} papers ▾</button>`;
       }
     }
 
     div.innerHTML = html;
     root.appendChild(div);
   });
+
+  function togglePapers(areaId, total) {
+    const section = document.getElementById(areaId);
+    const extras = section.querySelectorAll('.area-paper-extra');
+    const btn = document.getElementById('expand-' + areaId);
+    const expanded = extras[0] && extras[0].classList.contains('visible');
+    extras.forEach(el => el.classList.toggle('visible', !expanded));
+    btn.textContent = expanded ? `Show all ${total} papers ▾` : `Show fewer ▴`;
+  }
 </script>
 
 </body>
