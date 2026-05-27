@@ -137,10 +137,9 @@
       const isPrimary = cssClass === 'faculty';
       const nameTag = isPrimary ? 'h2' : 'h3';
 
-      const linkBtns = (person.links || []).map((l, i) => {
-        const cls = i === 0 ? 'btn btn-red' : 'btn btn-outline';
-        return `<a class="${cls}" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`;
-      }).join('');
+      const linkBtns = (person.links || []).map(l =>
+        `<a class="btn btn-outline" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`
+      ).join('');
 
       const bioHtml = person.bio
         ? `<p>${esc(person.bio)}</p>`
