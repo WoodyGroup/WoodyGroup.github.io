@@ -149,11 +149,12 @@
         const li = document.createElement('li');
         li.className = 'pub-item';
 
-        const firstLink = p.links && p.links.length ? p.links[0] : null;
+        const realLinks = (p.links || []).filter(l => l.url && l.url !== '#');
+        const firstLink = realLinks.length ? realLinks[0] : null;
         const titleHtml = firstLink
           ? `<a class="pub-title-link" href="${esc(firstLink.url)}" target="_blank" rel="noopener">${esc(p.title)}</a>`
           : `<span class="pub-title">${esc(p.title)}</span>`;
-        const extraLinks = (p.links || []).slice(1).map(l => {
+        const extraLinks = realLinks.slice(1).map(l => {
           const cls = l.label === 'PDF' ? 'pub-tag pdf' : 'pub-tag';
           return `<a class="${cls}" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`;
         }).join('');
