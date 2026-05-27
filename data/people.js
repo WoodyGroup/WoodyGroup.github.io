@@ -9,8 +9,8 @@
  * Fields:
  *   name     — string, required
  *   initials — 2-letter string for avatar fallback, required
- *   photo    — (optional) relative path to a photo, e.g. "assets/images/people/woody.jpg"
- *              Upload your photo to the assets/images/people/ folder, then set this field.
+ *   photo    — (optional) relative path to a photo, e.g. "data/people/woody.jpg"
+ *              Upload your photo to the data/people/ folder, then set this field.
  *              Supported formats: jpg, jpeg, png, webp.
  *              Recommended size: 400×400 px (square). The page will crop to square automatically.
  *              Leave as "" or omit to show initials instead.
@@ -26,7 +26,7 @@ const PEOPLE = {
     {
       name: "Shixiang (Woody) Zhu",
       initials: "WZ",
-      photo: "",   // e.g. "assets/images/people/woody.jpg"
+      photo: "",   // e.g. "data/people/woody.jpg"
       role: "Assistant Professor, Carnegie Mellon University",
       bio: "Woody's research focuses on decision-focused machine learning, robust optimization, and their applications to energy systems and high-stakes decision-making. He joined Carnegie Mellon University as an Assistant Professor in 2024.",
       links: [
@@ -40,7 +40,7 @@ const PEOPLE = {
     {
       name: "Wei Gu",
       initials: "WG",
-      photo: "",   // e.g. "assets/images/people/wei-gu.jpg"
+      photo: "",   // e.g. "data/people/wei-gu.jpg"
       role: "Postdoctoral Researcher",
       bio: "",
       links: [
@@ -53,7 +53,7 @@ const PEOPLE = {
     {
       name: "Wenbin Zhou",
       initials: "WZ",
-      photo: "",   // e.g. "assets/images/people/wenbin-zhou.jpg"
+      photo: "",   // e.g. "data/people/wenbin-zhou.jpg"
       role: "PhD Student",
       bio: "",
       links: [
@@ -64,7 +64,7 @@ const PEOPLE = {
     {
       name: "Shuyi Chen",
       initials: "SC",
-      photo: "",   // e.g. "assets/images/people/shuyi-chen.jpg"
+      photo: "",   // e.g. "data/people/shuyi-chen.jpg"
       role: "PhD Student",
       bio: "",
       links: [
@@ -75,7 +75,7 @@ const PEOPLE = {
     {
       name: "Minxing Zheng",
       initials: "MZ",
-      photo: "",   // e.g. "assets/images/people/minxing-zheng.jpg"
+      photo: "",   // e.g. "data/people/minxing-zheng.jpg"
       role: "PhD Student",
       bio: "",
       links: [
@@ -89,7 +89,7 @@ const PEOPLE = {
     {
       name: "Jane Doe",
       initials: "JD",
-      photo: "",   // e.g. "assets/images/people/jane-doe.jpg"
+      photo: "",   // e.g. "data/people/jane-doe.jpg"
       role: "PhD 2025 → Postdoc at MIT",
       bio: "",
       links: [
