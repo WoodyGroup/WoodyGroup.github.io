@@ -160,20 +160,12 @@
       categories: ["decision-learning"]
     },
     {
-      id: "conformal-prediction",
+      id: "conformal-robust",
       icon: "📐",
-      title: "Conformal Prediction & Uncertainty",
-      description: "We develop conformal prediction methods that produce distribution-free, statistically rigorous uncertainty sets — and connect them directly to downstream optimization and decision-making. Applications span risk assessment, robust optimization under uncertainty, and reliable deployment of ML models in high-stakes settings.",
-      tags: ["Conformal Prediction", "Uncertainty Quantification", "Risk Control", "Distributionally Robust Optimization"],
-      categories: ["conformal-prediction"]
-    },
-    {
-      id: "robust-optimization",
-      icon: "🛡️",
-      title: "Robust Optimization",
-      description: "Real decisions must remain reliable under distributional shift, model misspecification, and adversarial perturbations. We develop robust and distributionally robust optimization frameworks with data-driven ambiguity sets, including connections to conformal prediction and online learning.",
-      tags: ["Robust Optimization", "Ambiguity Sets", "Adversarial Robustness"],
-      categories: ["robust-optimization"]
+      title: "Conformal Prediction & Robust Optimization",
+      description: "We develop conformal prediction methods that produce distribution-free, statistically rigorous uncertainty sets and connect them directly to downstream optimization. We also build robust and distributionally robust optimization frameworks with data-driven ambiguity sets — with applications to risk assessment, reliable ML deployment, and decision-making under uncertainty.",
+      tags: ["Conformal Prediction", "Uncertainty Quantification", "Robust Optimization", "Risk Control"],
+      categories: ["conformal-prediction", "robust-optimization"]
     },
     {
       id: "energy-resilience",
@@ -278,6 +270,15 @@
     div.innerHTML = html;
     root.appendChild(div);
   });
+
+  /* Scroll to fragment after JS renders sections */
+  if (window.location.hash) {
+    const el = document.querySelector(window.location.hash);
+    if (el) {
+      const navH = 72;
+      window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - navH, behavior: 'auto' });
+    }
+  }
 
   function togglePapers(areaId, total) {
     const section = document.getElementById(areaId);
