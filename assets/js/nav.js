@@ -7,8 +7,8 @@
 (function () {
   const NAV_LINKS = [
     { label: "Home",         href: "index.html"        },
-    { label: "Publications", href: "publications.html" },
     { label: "Research",     href: "research.html"     },
+    { label: "Publications", href: "publications.html" },
     { label: "People",       href: "people.html"       },
   ];
 

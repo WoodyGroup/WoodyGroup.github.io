@@ -17,34 +17,35 @@
     }
     .year-header:first-child { margin-top: 0; }
 
-    .pub-list  { list-style: none; }
+    .pub-list { list-style: none; }
 
-    .pub-item {
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .pub-item { padding: 12px 0; }
 
-    /* title + inline links on one line */
     .pub-title-row {
       display: flex;
-      align-items: baseline;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 3px;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 4px;
     }
     .pub-title {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--dark);
     }
-    .pub-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
+    .pub-title-link {
+      font-size: 0.95rem;
+      color: var(--dark);
+      text-decoration: none;
+      border-bottom: 1px solid #ccc;
+      transition: color 0.15s, border-color 0.15s;
     }
+    .pub-title-link:hover { color: var(--red); border-bottom-color: var(--red); }
+
+    .pub-links { display: inline-flex; gap: 5px; }
     .pub-tag {
       font-family: 'Arial', sans-serif;
-      font-size: 0.72rem;
-      padding: 2px 9px;
+      font-size: 0.7rem;
+      padding: 1px 8px;
       border-radius: 20px;
       border: 1px solid #ccc;
       color: #555;
@@ -57,31 +58,32 @@
     .pub-tag.pdf:hover { background: #a30f28; }
 
     .pub-authors {
+      display: block;
       font-family: 'Arial', sans-serif;
-      font-size: 0.86rem;
-      color: var(--gray);
-      margin-bottom: 2px;
+      font-size: 0.82rem;
+      color: #777;
     }
     .pub-venue {
+      display: block;
       font-family: 'Arial', sans-serif;
-      font-size: 0.84rem;
-      color: #777;
+      font-size: 0.82rem;
+      color: #888;
       font-style: italic;
     }
     .pub-award {
       display: block;
       font-family: 'Arial', sans-serif;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: #b8860b;
-      margin-top: 5px;
+      margin-top: 2px;
     }
-    .pub-award::before { content: "🏆 "; font-size: 0.75rem; }
+    .pub-award::before { content: "🏆 "; font-size: 0.72rem; }
     .pub-note {
       display: block;
       font-family: 'Arial', sans-serif;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: #888;
-      margin-top: 4px;
+      margin-top: 2px;
     }
 
     #pub-root .loading {
@@ -147,16 +149,19 @@
         const li = document.createElement('li');
         li.className = 'pub-item';
 
-        // Title + inline links
-        const linkTags = (p.links || []).map(l => {
+        const firstLink = p.links && p.links.length ? p.links[0] : null;
+        const titleHtml = firstLink
+          ? `<a class="pub-title-link" href="${esc(firstLink.url)}" target="_blank" rel="noopener">${esc(p.title)}</a>`
+          : `<span class="pub-title">${esc(p.title)}</span>`;
+        const extraLinks = (p.links || []).slice(1).map(l => {
           const cls = l.label === 'PDF' ? 'pub-tag pdf' : 'pub-tag';
           return `<a class="${cls}" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`;
         }).join('');
-        let html = `<div class="pub-title-row">
-          <span class="pub-title">${esc(p.title)}</span>
-          ${linkTags ? `<span class="pub-links">${linkTags}</span>` : ''}
-        </div>`;
 
+        let html = `<div class="pub-title-row">
+          ${titleHtml}
+          ${extraLinks ? `<span class="pub-links">${extraLinks}</span>` : ''}
+        </div>`;
         html += `<div class="pub-authors">${esc(p.authors)}</div>`;
         if (p.venue) html += `<div class="pub-venue">${esc(p.venue)}</div>`;
         (p.awards || []).forEach(a => { html += `<div class="pub-award">${esc(a)}</div>`; });

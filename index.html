@@ -64,21 +64,21 @@
       display: inline-block;
       background: #fff;
       border: 1px solid var(--border);
-      border-left: 3px solid var(--red);
+      border-left: 3px solid var(--border);
       padding: 5px 13px;
       font-family: 'Arial', sans-serif;
       font-size: 0.8rem;
-      color: var(--red);
+      color: var(--gray);
       border-radius: 2px;
       text-decoration: none;
       transition: all 0.18s;
       cursor: pointer;
     }
-    .tag-pill-link::after { content: " →"; font-size: 0.72rem; opacity: 0.7; }
+    .tag-pill-link::after { content: " →"; font-size: 0.72rem; opacity: 0.5; }
     .tag-pill-link:hover {
-      background: var(--red);
-      border-color: var(--red);
-      color: #fff;
+      border-color: var(--dark);
+      border-left-color: var(--dark);
+      color: var(--dark);
       text-decoration: none;
     }
     @media (max-width: 680px) {
