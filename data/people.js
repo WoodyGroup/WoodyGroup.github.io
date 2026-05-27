@@ -26,7 +26,7 @@ const PEOPLE = {
     {
       name: "Shixiang (Woody) Zhu",
       initials: "WZ",
-      photo: "",   // e.g. "data/people/woody.jpg"
+      photo: "data/people/shixiang-zhu.jpeg",
       role: "Assistant Professor, Carnegie Mellon University",
       bio: "Woody's research focuses on decision-focused machine learning, robust optimization, and their applications to energy systems and high-stakes decision-making. He joined Carnegie Mellon University as an Assistant Professor in 2024.",
       links: [
@@ -53,7 +53,7 @@ const PEOPLE = {
     {
       name: "Wenbin Zhou",
       initials: "WZ",
-      photo: "",   // e.g. "data/people/wenbin-zhou.jpg"
+      photo: "data/people/wenbin-zhou.jpg",
       role: "PhD Student",
       bio: "",
       links: [
@@ -64,7 +64,7 @@ const PEOPLE = {
     {
       name: "Shuyi Chen",
       initials: "SC",
-      photo: "",   // e.g. "data/people/shuyi-chen.jpg"
+      photo: "data/people/shuyi-chen.jpeg",
       role: "PhD Student",
       bio: "",
       links: [
@@ -75,7 +75,7 @@ const PEOPLE = {
     {
       name: "Minxing Zheng",
       initials: "MZ",
-      photo: "",   // e.g. "data/people/minxing-zheng.jpg"
+      photo: "data/people/minxing-zheng.jpeg",
       role: "PhD Student",
       bio: "",
       links: [
