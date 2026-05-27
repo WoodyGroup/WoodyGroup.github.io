@@ -152,52 +152,52 @@
    * ------------------------------------------------------------------ */
   const AREAS = [
     {
-      id: "decision-robust",
+      id: "decision-aware",
       icon: "🎯",
-      title: "Decision-Focused Learning and Robust Optimization",
-      description: "Traditional ML pipelines separate prediction from optimization. We integrate learned models directly into optimization loops, training representations that minimize downstream decision regret rather than prediction error alone. We also build robust and distributionally robust optimization frameworks with data-driven uncertainty sets — addressing non-differentiable optimization layers, combinatorial action spaces, and distribution shift between training and deployment.",
-      tags: ["Predict-then-Optimize", "Task-Based Learning", "Robust Optimization", "End-to-End Differentiable Optimization"],
-      categories: ["decision-robust"]
+      title: "Decision-Aware Learning",
+      description: "Traditional ML pipelines separate prediction from optimization. We train models whose representations directly minimize downstream decision regret — integrating learned models into optimization loops, addressing non-differentiable solvers and combinatorial action spaces, and connecting conformal uncertainty sets to robust decision objectives.",
+      tags: ["Predict-then-Optimize", "Task-Based Learning", "Decision Regret", "End-to-End Optimization"],
+      categories: ["decision-aware"]
     },
     {
-      id: "conformal-uncertainty",
+      id: "conformal-risk",
       icon: "📐",
-      title: "Conformal Prediction and Decision-Aware Uncertainty Quantification",
-      description: "We develop conformal prediction methods that produce distribution-free, statistically rigorous uncertainty sets and connect them directly to downstream decision-making. Our work spans vectorized non-conformity scores, hierarchical and topology-aware prediction sets, and inverse conformal risk control — enabling reliable ML deployment in safety-critical domains.",
-      tags: ["Conformal Prediction", "Uncertainty Quantification", "Risk Control", "Prediction Sets"],
-      categories: ["conformal-uncertainty"]
+      title: "Conformal Prediction and Risk Calibration",
+      description: "We develop conformal prediction methods that produce distribution-free, statistically rigorous uncertainty sets and coverage guarantees — including vectorized non-conformity scores, hierarchical and topology-aware prediction sets, and inverse conformal risk control. Our work connects uncertainty quantification directly to downstream risk management and safe decision-making.",
+      tags: ["Conformal Prediction", "Uncertainty Quantification", "Coverage Guarantees", "Risk Control"],
+      categories: ["conformal-risk"]
     },
     {
-      id: "energy-climate",
+      id: "energy-resilience",
       icon: "⚡",
-      title: "Energy Systems, Infrastructure Resilience, and Climate Adaptation",
-      description: "Power grids face growing uncertainty from renewable variability, extreme weather, and evolving demand. We apply data-driven optimization and ML to grid planning, resilience under wildfire and storm stress, demand forecasting, and equity in electricity access — with direct partnerships with utilities and real-world deployment.",
-      tags: ["Power Grid Optimization", "Infrastructure Resilience", "Climate Risk", "Electricity Markets", "Demand Forecasting"],
-      categories: ["energy-climate"]
+      title: "Energy, Infrastructure, and Climate Resilience",
+      description: "Power grids face growing stress from wildfire risk, extreme weather, renewable variability, and evolving demand. We apply data-driven optimization and ML to large-scale resilience planning, outage quantification, distributed energy adoption, and equity in electricity access — with direct utility partnerships and real-world deployment.",
+      tags: ["Grid Resilience", "Wildfire Risk", "Distributed Energy", "Climate Adaptation", "Infrastructure Planning"],
+      categories: ["energy-resilience"]
     },
     {
-      id: "spatiotemporal-events",
+      id: "spatiotemporal-detection",
       icon: "📈",
-      title: "Spatio-Temporal Learning and Event Analytics",
-      description: "Many critical systems generate streams of event data with complex spatial and temporal structure. We develop point process models, change-point detection, anomaly detection, and spatio-temporal prediction methods — grounded in modern ML and applied to public health, power systems monitoring, and emergency response.",
-      tags: ["Point Processes", "Change-Point Detection", "Anomaly Detection", "Spatio-Temporal Modeling"],
-      categories: ["spatiotemporal-events"]
+      title: "Spatio-Temporal Modeling and Event Detection",
+      description: "Many critical systems generate streams of event data with complex spatial and temporal structure. We develop point process models, change-point detection, anomaly detection, and goodness-of-fit tests grounded in modern ML — applied to public health surveillance, power systems monitoring, and emergency response.",
+      tags: ["Point Processes", "Change-Point Detection", "Anomaly Detection", "Time Series Testing"],
+      categories: ["spatiotemporal-detection"]
     },
     {
-      id: "generative-timeseries",
-      icon: "🎲",
-      title: "Generative AI, Time Series, and Scientific Machine Learning",
-      description: "We build generative models for structured and sequential data — including tabular time series, marked temporal point processes, and counterfactual distributions. Our work spans diffusion-based generation, score-matching methods, and physics-informed representations, with applications to synthetic data generation, imputation, forecasting, and scientific discovery.",
-      tags: ["Generative Models", "Time Series", "Synthetic Data", "Score Matching", "Scientific ML"],
-      categories: ["generative-timeseries"]
+      id: "causal-fair",
+      icon: "🔍",
+      title: "Causal, Counterfactual, and Fair AI",
+      description: "We develop causal inference and counterfactual learning methods for understanding treatment effects, modeling time-varying interventions, and ensuring algorithmic fairness. Our work includes counterfactual generative models, data orthogonalization for bias removal, and causal event prediction — with applications to healthcare, platform policy, and energy equity.",
+      tags: ["Causal Inference", "Counterfactual Learning", "Algorithmic Fairness", "Treatment Effects"],
+      categories: ["causal-fair"]
     },
     {
-      id: "human-causal-fair",
+      id: "human-ai-decisions",
       icon: "⚖️",
-      title: "Human-Centered, Causal, and Fair Decision Systems",
-      description: "Deploying AI in high-stakes settings requires more than accuracy. We study human-AI collaboration and the paradoxes of automation, causal inference for counterfactual fairness, and optimization under implicit societal constraints — with applications to healthcare dosing, energy equity, new user modeling, and public policy.",
-      tags: ["Human-AI Collaboration", "Counterfactual Fairness", "Causal Inference", "Policy Optimization"],
-      categories: ["human-causal-fair"]
+      title: "Human-AI and Personalized Decision Support",
+      description: "We study how AI systems can augment rather than replace human judgment — including the paradoxes of automation and collaboration, generative curation for diverse decision recommendations, personalized treatment dosing, and optimization under implicit constraints for public policy. Our goal is AI that is useful, trustworthy, and aligned with human preferences.",
+      tags: ["Human-AI Collaboration", "Generative Curation", "Personalized Dosing", "Policy Optimization"],
+      categories: ["human-ai-decisions"]
     }
   ];
 

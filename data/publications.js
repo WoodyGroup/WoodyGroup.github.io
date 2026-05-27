@@ -16,12 +16,12 @@
  *   notes      — array of strings (workshop versions, acceptance rates, etc.)
  *   categories — array of category keys; used by research.html to group papers.
  *                Available keys:
- *                  "decision-robust"       — decision-focused learning & robust optimization
- *                  "conformal-uncertainty" — conformal prediction & uncertainty quantification
- *                  "energy-climate"        — energy systems, grid resilience, climate adaptation
- *                  "spatiotemporal-events" — spatio-temporal modeling, point processes, event analytics
- *                  "generative-timeseries" — generative AI, time series, scientific ML
- *                  "human-causal-fair"     — human-AI collaboration, causal inference, fairness
+ *                  "decision-aware"           — decision-aware learning, predict-then-optimize
+ *                  "conformal-risk"            — conformal prediction, uncertainty sets, risk calibration
+ *                  "spatiotemporal-detection"  — spatio-temporal modeling, point processes, event/anomaly detection
+ *                  "energy-resilience"         — energy systems, grid resilience, climate & infrastructure
+ *                  "causal-fair"               — causal inference, counterfactual learning, fairness
+ *                  "human-ai-decisions"        — human-AI collaboration, personalized decision support, public policy
  */
 
 const PUBLICATIONS = {
@@ -40,7 +40,7 @@ const PUBLICATIONS = {
           ],
           awards: [],
           notes: [],
-          categories: ["decision-robust", "conformal-uncertainty"]
+          categories: ["decision-aware", "conformal-risk"]
         },
         {
           title: "Learning to Test: Physics-informed representation for dynamical instability detection.",
@@ -49,7 +49,7 @@ const PUBLICATIONS = {
           links: [],
           awards: [],
           notes: [],
-          categories: ["generative-timeseries", "spatiotemporal-events"]
+          categories: ["spatiotemporal-detection"]
         },
         {
           title: "Large-scale resilience planning for wildfire-prone electricity-system via adaptive robust optimization.",
@@ -58,7 +58,7 @@ const PUBLICATIONS = {
           links: [{ label: "Slides", url: "#" }],
           awards: [],
           notes: [],
-          categories: ["energy-climate", "decision-robust"]
+          categories: ["energy-resilience"]
         },
         {
           title: "Should humans be in the loop? Human-AI collaboration paradox and automation cliffs.",
@@ -69,7 +69,7 @@ const PUBLICATIONS = {
           ],
           awards: [],
           notes: [],
-          categories: ["human-causal-fair"]
+          categories: ["human-ai-decisions"]
         },
         {
           title: "Score-based change-point detection and region localization for spatio-temporal point processes.",
@@ -78,7 +78,7 @@ const PUBLICATIONS = {
           links: [{ label: "Code", url: "#" }],
           awards: ["Winner, 2026 IISE QCRE Best Track Paper Competition"],
           notes: [],
-          categories: ["spatiotemporal-events"]
+          categories: ["spatiotemporal-detection"]
         },
         {
           title: "Impact of power outages on the adoption of residential solar photovoltaics in a changing climate.",
@@ -87,7 +87,7 @@ const PUBLICATIONS = {
           links: [],
           awards: [],
           notes: [],
-          categories: ["energy-climate"]
+          categories: ["energy-resilience"]
         },
         {
           title: "Data to dose: Efficient synthetic data generation with expert guidance for personalized dosing.",
@@ -96,7 +96,7 @@ const PUBLICATIONS = {
           links: [],
           awards: ["Runner up, 2025 INFORMS HAS Student Paper Competition"],
           notes: ["A short version is accepted by 2025 NeurIPS ML×OR Workshop."],
-          categories: ["generative-timeseries", "human-causal-fair"]
+          categories: ["human-ai-decisions"]
         },
         {
           title: "Enhancing electricity-system resilience with adaptive robust optimization.",
@@ -105,7 +105,7 @@ const PUBLICATIONS = {
           links: [{ label: "News", url: "#" }],
           awards: ["Winner, 2025 INFORMS ENRE Best Student Paper Award"],
           notes: [],
-          categories: ["energy-climate", "decision-robust"]
+          categories: ["energy-resilience"]
         },
         {
           title: "Generative conformal prediction with vectorized non-conformity scores.",
@@ -114,7 +114,7 @@ const PUBLICATIONS = {
           links: [{ label: "Code", url: "#" }],
           awards: [],
           notes: [],
-          categories: ["conformal-uncertainty", "generative-timeseries"]
+          categories: ["conformal-risk"]
         },
         {
           title: "Balancing optimality and diversity: Human-centered decision-making through generative curation.",
@@ -127,7 +127,7 @@ const PUBLICATIONS = {
           ],
           awards: [],
           notes: [],
-          categories: ["human-causal-fair", "decision-robust"]
+          categories: ["human-ai-decisions"]
         },
         {
           title: "Generalized Hypercube queuing models with overlapping service regions.",
@@ -136,7 +136,7 @@ const PUBLICATIONS = {
           links: [{ label: "Code", url: "#" }],
           awards: ["1st place, 2026 Clifford Spiegelman Student Paper Competition"],
           notes: [],
-          categories: ["spatiotemporal-events"]
+          categories: ["human-ai-decisions"]
         }
       ]
     },
@@ -155,7 +155,7 @@ const PUBLICATIONS = {
             "Runner up, 2025 INFORMS Data Mining Best Applied Paper"
           ],
           notes: [],
-          categories: ["conformal-uncertainty", "energy-climate"]
+          categories: ["conformal-risk", "energy-resilience"]
         },
         {
           title: "Calibrating decision robustness via inverse conformal risk control.",
@@ -164,7 +164,7 @@ const PUBLICATIONS = {
           links: [],
           awards: [],
           notes: [],
-          categories: ["decision-robust", "conformal-uncertainty"]
+          categories: ["decision-aware", "conformal-risk"]
         },
         {
           title: "Conformalized decision risk assessment.",
@@ -178,7 +178,7 @@ const PUBLICATIONS = {
           ],
           awards: ["Winner, 2025 YinzOR Poster Competition"],
           notes: ["A short version is accepted by 2025 NeurIPS ML×OR Workshop."],
-          categories: ["decision-robust", "conformal-uncertainty"]
+          categories: ["decision-aware", "conformal-risk"]
         },
         {
           title: "Gen-DFL: Decision-focused generative learning for robust decision making.",
@@ -187,7 +187,7 @@ const PUBLICATIONS = {
           links: [{ label: "arXiv", url: "#" }],
           awards: ["Winner, 2026 IISE DAIS Best Track Paper Competition"],
           notes: [],
-          categories: ["decision-robust", "generative-timeseries"]
+          categories: ["decision-aware"]
         },
         {
           title: "Global-decision-focused neural ODEs for proactive grid resilience management.",
@@ -199,7 +199,7 @@ const PUBLICATIONS = {
           ],
           awards: [],
           notes: [],
-          categories: ["decision-robust", "energy-climate"]
+          categories: ["decision-aware", "energy-resilience"]
         }
       ]
     },
@@ -215,7 +215,7 @@ const PUBLICATIONS = {
           links: [],
           awards: [],
           notes: [],
-          categories: ["generative-timeseries"]
+          categories: ["spatiotemporal-detection"]
         },
         {
           title: "Topology-aware conformal prediction for stream networks.",
@@ -227,7 +227,7 @@ const PUBLICATIONS = {
           ],
           awards: [],
           notes: [],
-          categories: ["conformal-uncertainty"]
+          categories: ["conformal-risk"]
         },
         {
           title: "Sequential change point detection via denoising score matching.",
@@ -239,7 +239,7 @@ const PUBLICATIONS = {
           ],
           awards: [],
           notes: [],
-          categories: ["spatiotemporal-events"]
+          categories: ["spatiotemporal-detection"]
         },
         {
           title: "Quantifying grid resilience against extreme weather using large-scale customer power outage data.",
@@ -253,7 +253,7 @@ const PUBLICATIONS = {
           ],
           awards: [],
           notes: [],
-          categories: ["energy-climate"]
+          categories: ["energy-resilience"]
         },
         {
           title: "Counterfactual fairness through transforming data orthogonal to bias.",
@@ -265,7 +265,7 @@ const PUBLICATIONS = {
           ],
           awards: [],
           notes: [],
-          categories: ["human-causal-fair"]
+          categories: ["causal-fair"]
         },
         {
           title: "Conditional generative modeling for high-dimensional marked temporal point processes.",
@@ -277,7 +277,7 @@ const PUBLICATIONS = {
           ],
           awards: [],
           notes: ["A short version is accepted by NeurIPS 2023 Workshop on SyntheticData4ML."],
-          categories: ["generative-timeseries", "spatiotemporal-events"]
+          categories: ["spatiotemporal-detection"]
         },
         {
           title: "Hierarchical spatio-temporal uncertainty quantification for distributed energy adoption.",
@@ -286,7 +286,7 @@ const PUBLICATIONS = {
           links: [],
           awards: ["Best Paper Award, IEEE Power & Energy Society"],
           notes: ["The results were incorporated into the 2025 AES Indiana Integrated Resource Plan (Vol 3)."],
-          categories: ["conformal-uncertainty", "energy-climate"]
+          categories: ["energy-resilience"]
         },
         {
           title: "Recurrent neural goodness-of-fit test for time series.",
@@ -299,7 +299,7 @@ const PUBLICATIONS = {
           ],
           awards: [],
           notes: [],
-          categories: ["generative-timeseries", "spatiotemporal-events"]
+          categories: ["spatiotemporal-detection"]
         },
         {
           title: "New user event prediction through the lens of causal inference.",
@@ -311,7 +311,7 @@ const PUBLICATIONS = {
           ],
           awards: [],
           notes: [],
-          categories: ["human-causal-fair"]
+          categories: ["causal-fair"]
         },
         {
           title: "Uncertainty-aware robust learning on noisy graphs.",
@@ -324,7 +324,7 @@ const PUBLICATIONS = {
           ],
           awards: [],
           notes: [],
-          categories: ["decision-robust"]
+          categories: ["conformal-risk"]
         },
         {
           title: "Black-box optimization with implicit constraints for public policy.",
@@ -340,7 +340,7 @@ const PUBLICATIONS = {
             "A short version is accepted as a referred paper for 2024 INFORMS Optimization Society Conference.",
             "Oral presentation (Special Track on AI for Social Impact), acceptance rate: 23/469 = 4.9%."
           ],
-          categories: ["decision-robust", "human-causal-fair"]
+          categories: ["human-ai-decisions"]
         }
       ]
     },
@@ -364,7 +364,7 @@ const PUBLICATIONS = {
             "Winner, 2023 YinzOR Poster Competition"
           ],
           notes: ["A short version is accepted by Causal Representation Learning Workshop at NeurIPS 2023."],
-          categories: ["generative-timeseries", "human-causal-fair"]
+          categories: ["causal-fair"]
         },
         {
           title: "Assessing electricity service unfairness with transfer counterfactual learning.",
@@ -373,7 +373,7 @@ const PUBLICATIONS = {
           links: [],
           awards: [],
           notes: [],
-          categories: ["energy-climate", "human-causal-fair"]
+          categories: ["energy-resilience", "causal-fair"]
         },
         {
           title: "Non-stationary spatio-temporal point process modeling for high-resolution COVID-19 data.",
@@ -389,7 +389,7 @@ const PUBLICATIONS = {
             "Runner up, 2022 INFORMS Poster Competition"
           ],
           notes: ["Accepted for presentation at 2022 INFORMS Workshop on Data Science."],
-          categories: ["spatiotemporal-events"]
+          categories: ["spatiotemporal-detection"]
         },
         {
           title: "Sequential adversarial anomaly detection for one-class event data.",
@@ -402,7 +402,7 @@ const PUBLICATIONS = {
           ],
           awards: ["Runner up, Best Applied Paper Competition at 2020 INFORMS DMDA Workshop"],
           notes: [],
-          categories: ["spatiotemporal-events"]
+          categories: ["spatiotemporal-detection"]
         },
         {
           title: "Multi-resolution spatio-temporal prediction with application to wind power generation.",
@@ -418,7 +418,7 @@ const PUBLICATIONS = {
             "Best Student Paper Nominee & full presentation at 2022 INFORMS Workshop on Data Science"
           ],
           notes: [],
-          categories: ["spatiotemporal-events", "energy-climate"]
+          categories: ["spatiotemporal-detection", "energy-resilience"]
         }
       ]
     }
