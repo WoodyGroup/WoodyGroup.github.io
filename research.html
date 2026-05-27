@@ -44,13 +44,14 @@
     /* Paper list under each area */
     .area-papers { list-style: none; margin-top: 4px; }
 
-    .area-paper-item { padding: 10px 0; }
+    .area-paper-item { padding: 12px 0; }
 
     .area-paper-title-row {
       display: flex;
       flex-wrap: wrap;
       align-items: baseline;
       gap: 6px;
+      margin-bottom: 4px;
     }
     .area-paper-title {
       font-size: 0.93rem;
@@ -69,9 +70,9 @@
     }
     .area-paper-authors {
       font-family: 'Arial', sans-serif;
-      font-size: 0.8rem;
-      color: #888;
-      margin-top: 2px;
+      font-size: 0.82rem;
+      color: #777;
+      display: block;
     }
     .area-paper-award {
       font-family: 'Arial', sans-serif;
@@ -119,15 +120,8 @@
 </head>
 <body>
 
-<nav>
-  <a class="nav-logo" href="index.html">ADIL <span>@ CMU</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="publications.html">Publications</a></li>
-    <li><a href="research.html" class="active">Research</a></li>
-    <li><a href="people.html">People</a></li>
-  </ul>
-</nav>
+<nav id="main-nav"></nav>
+<script src="assets/js/nav.js"></script>
 
 <div class="page-hero">
   <div class="container">
